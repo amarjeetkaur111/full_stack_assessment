@@ -42,12 +42,13 @@ build/Release
 node_modules/
 merchant/node_modules
 client/node_modules
+partner/node_modules
 jspm_packages/
 
 
 #keys
-merchant/private.key
-merchant/public.key
+merchant/private.pem
+partner/public.pem
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 

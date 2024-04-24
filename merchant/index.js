@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const userRoutes =  require('./routes/userRoute');
+const subsciptionRoute = require('./routes/subscriptionRoute');
 const cors = require('cors');
 
 const app = express();
@@ -17,7 +18,10 @@ app.use(express.json());
 app.use(cors());
 
 //User routes
-app.use('/user',userRoutes);    
+app.use('/user',userRoutes); 
+
+//Subcription Routes
+app.use('/partners', subsciptionRoute);
 
 
 app.get('/test',(req,res) => {

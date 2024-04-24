@@ -1,7 +1,6 @@
 const { mysqlConnection }  = require('../db_connections');
 const bcrypt = require('bcrypt');
 const validator = require('validator');
-const { createToken } = require('../jwt_auth');
 
 const registration = async(req,res) => {
     try{
@@ -58,8 +57,8 @@ const login = async(req,res) => {
         if(!IsPasswordValid) return res.status(400).json({success:false, message:"Invalid Email or Password"});
 
         //JWT Token
-        const token = createToken(user[0].id);
-        return res.status(200).json({success:true,id:user[0].id,name:user[0].name, email:email, token:token});
+        
+        return res.status(200).json({success:true,id:user[0].id,name:user[0].name, email:email, token:'token'});
 
     }
     catch(err)
