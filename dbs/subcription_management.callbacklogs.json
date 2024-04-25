@@ -1,0 +1,230 @@
+[{
+  "_id": {
+    "$oid": "662a5df663802f66551cceac"
+  },
+  "subDetailID": {
+    "$oid": "662a5df663802f66551cceaa"
+  },
+  "data": {
+    "userId": 1,
+    "type": "subscribe",
+    "serviceId": "662786839b738afb04a69eba",
+    "subDetailID": "662a5df663802f66551cceaa"
+  },
+  "status": "Received",
+  "message": "Request Received",
+  "createdAt": {
+    "$date": "2024-04-25T13:43:18.139Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T13:43:18.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a5df863802f66551cceae"
+  },
+  "subDetailID": {
+    "$oid": "662a5df663802f66551cceaa"
+  },
+  "data": {
+    "userId": 1,
+    "type": "subscribe",
+    "serviceId": "662786839b738afb04a69eba",
+    "subDetailID": "662a5df663802f66551cceaa"
+  },
+  "status": "Approved",
+  "message": "Approved",
+  "createdAt": {
+    "$date": "2024-04-25T13:43:20.140Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T13:43:20.140Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a61bd45d8a191865b5ef9"
+  },
+  "subDetailID": {
+    "$oid": "662a61bd45d8a191865b5ef6"
+  },
+  "data": {
+    "userId": 1,
+    "type": "unsubscribe",
+    "serviceId": "662786839b738afb04a69eba",
+    "subDetailID": "662a61bd45d8a191865b5ef6"
+  },
+  "status": "Received",
+  "message": "Request Received",
+  "createdAt": {
+    "$date": "2024-04-25T13:59:25.508Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T13:59:25.508Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a61bf45d8a191865b5efb"
+  },
+  "subDetailID": {
+    "$oid": "662a61bd45d8a191865b5ef6"
+  },
+  "data": {
+    "userId": 1,
+    "type": "unsubscribe",
+    "serviceId": "662786839b738afb04a69eba",
+    "subDetailID": "662a61bd45d8a191865b5ef6"
+  },
+  "status": "Approved",
+  "message": "Approved",
+  "createdAt": {
+    "$date": "2024-04-25T13:59:27.514Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T13:59:27.514Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a61db45d8a191865b5f09"
+  },
+  "subDetailID": {
+    "$oid": "662a61db45d8a191865b5f07"
+  },
+  "data": {
+    "userId": 1,
+    "type": "subscribe",
+    "serviceId": "662786fab856e14b98aff322",
+    "subDetailID": "662a61db45d8a191865b5f07"
+  },
+  "status": "Received",
+  "message": "Request Received",
+  "createdAt": {
+    "$date": "2024-04-25T13:59:55.624Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T13:59:55.624Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a61dd45d8a191865b5f0b"
+  },
+  "subDetailID": {
+    "$oid": "662a61db45d8a191865b5f07"
+  },
+  "data": {
+    "userId": 1,
+    "type": "subscribe",
+    "serviceId": "662786fab856e14b98aff322",
+    "subDetailID": "662a61db45d8a191865b5f07"
+  },
+  "status": "Approved",
+  "message": "Approved",
+  "createdAt": {
+    "$date": "2024-04-25T13:59:57.633Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T13:59:57.633Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a630e45d8a191865b5f5a"
+  },
+  "subDetailID": {
+    "$oid": "662a630e45d8a191865b5f57"
+  },
+  "data": {
+    "userId": 1,
+    "type": "unsubscribe",
+    "serviceId": "662786fab856e14b98aff322",
+    "subDetailID": "662a630e45d8a191865b5f57"
+  },
+  "status": "Received",
+  "message": "Request Received",
+  "createdAt": {
+    "$date": "2024-04-25T14:05:02.221Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T14:05:02.221Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a631045d8a191865b5f5d"
+  },
+  "subDetailID": {
+    "$oid": "662a630e45d8a191865b5f57"
+  },
+  "data": {
+    "userId": 1,
+    "type": "unsubscribe",
+    "serviceId": "662786fab856e14b98aff322",
+    "subDetailID": "662a630e45d8a191865b5f57"
+  },
+  "status": "Approved",
+  "message": "Approved",
+  "createdAt": {
+    "$date": "2024-04-25T14:05:04.230Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T14:05:04.230Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a635545d8a191865b5f70"
+  },
+  "subDetailID": {
+    "$oid": "662a635545d8a191865b5f6d"
+  },
+  "data": {
+    "userId": 1,
+    "type": "subscribe",
+    "serviceId": "662786839b738afb04a69eba",
+    "subDetailID": "662a635545d8a191865b5f6d"
+  },
+  "status": "Received",
+  "message": "Request Received",
+  "createdAt": {
+    "$date": "2024-04-25T14:06:13.030Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T14:06:13.030Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a635745d8a191865b5f72"
+  },
+  "subDetailID": {
+    "$oid": "662a635545d8a191865b5f6d"
+  },
+  "data": {
+    "userId": 1,
+    "type": "subscribe",
+    "serviceId": "662786839b738afb04a69eba",
+    "subDetailID": "662a635545d8a191865b5f6d"
+  },
+  "status": "Approved",
+  "message": "Approved",
+  "createdAt": {
+    "$date": "2024-04-25T14:06:15.037Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T14:06:15.037Z"
+  },
+  "__v": 0
+}]

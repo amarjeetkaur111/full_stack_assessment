@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "66265ed8910bd2b7b3d43da2"
+  },
+  "name": "Google",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66265ef62e41fb22fd0cf693"
+  },
+  "name": "MicroSoft",
+  "__v": 0
+}]

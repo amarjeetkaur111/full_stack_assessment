@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "662786839b738afb04a69eba"
+  },
+  "partnerId": {
+    "$oid": "66265ed8910bd2b7b3d43da2"
+  },
+  "name": "Google Cloud",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662786dbb856e14b98aff31e"
+  },
+  "partnerId": {
+    "$oid": "66265ed8910bd2b7b3d43da2"
+  },
+  "name": "Gmail",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662786edb856e14b98aff320"
+  },
+  "partnerId": {
+    "$oid": "66265ef62e41fb22fd0cf693"
+  },
+  "name": "Azure",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662786fab856e14b98aff322"
+  },
+  "partnerId": {
+    "$oid": "66265ef62e41fb22fd0cf693"
+  },
+  "name": "360 Office",
+  "__v": 0
+}]

@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "662a5df663802f66551cceaa"
+  },
+  "subscriptionID": {
+    "$oid": "662a5df663802f66551ccea8"
+  },
+  "type": "subscribe",
+  "status": "Approved",
+  "message": "Approved",
+  "createdAt": {
+    "$date": "2024-04-25T13:43:18.117Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T13:43:20.140Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a61bd45d8a191865b5ef6"
+  },
+  "subscriptionID": {
+    "$oid": "662a5df663802f66551ccea8"
+  },
+  "type": "unsubscribe",
+  "status": "Approved",
+  "message": "Approved",
+  "createdAt": {
+    "$date": "2024-04-25T13:59:25.484Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T13:59:27.515Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a61db45d8a191865b5f07"
+  },
+  "subscriptionID": {
+    "$oid": "662a61db45d8a191865b5f05"
+  },
+  "type": "subscribe",
+  "status": "Approved",
+  "message": "Approved",
+  "createdAt": {
+    "$date": "2024-04-25T13:59:55.614Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T13:59:57.634Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a630e45d8a191865b5f57"
+  },
+  "subscriptionID": {
+    "$oid": "662a61db45d8a191865b5f05"
+  },
+  "type": "unsubscribe",
+  "status": "Approved",
+  "message": "Approved",
+  "createdAt": {
+    "$date": "2024-04-25T14:05:02.209Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T14:05:04.231Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a635545d8a191865b5f6d"
+  },
+  "subscriptionID": {
+    "$oid": "662a5df663802f66551ccea8"
+  },
+  "type": "subscribe",
+  "status": "Approved",
+  "message": "Approved",
+  "createdAt": {
+    "$date": "2024-04-25T14:06:13.018Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T14:06:15.038Z"
+  },
+  "__v": 0
+}]

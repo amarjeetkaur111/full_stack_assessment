@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "662a5df663802f66551ccea8"
+  },
+  "userId": 1,
+  "serviceId": {
+    "$oid": "662786839b738afb04a69eba"
+  },
+  "currentStatus": "subscribe",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a61db45d8a191865b5f05"
+  },
+  "userId": 1,
+  "serviceId": {
+    "$oid": "662786fab856e14b98aff322"
+  },
+  "currentStatus": "unsubscribe",
+  "__v": 0
+}]
