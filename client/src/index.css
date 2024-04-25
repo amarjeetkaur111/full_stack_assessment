@@ -6,6 +6,48 @@ body{
     background-color: white;
 }
 
+.row>*{
+  padding-left: 0;
+}
+.out-container {
+    border-radius:3px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.out-container-header{
+  background-color: #ccd0d5;
+  color:#000;
+  font-size: 95%;
+  font-weight: 700;
+  letter-spacing: 0.08rem;
+  padding: 0.75rem;
+  text-transform: uppercase;
+}
+
+.card{
+  background-color: #f3f7ff;
+  padding: .5rem;
+}
+.card-body{
+  margin-bottom: 5px;
+  background-color: #717f8e;
+  border-radius: 0.375rem;
+  color: #e6e6ee;
+  border: 1px;
+  font-weight: 800;
+}
+.partner-list:hover{
+  cursor:'pointer';
+  background-color: #352a82;
+}
+
+.service{
+  padding-left:10px;padding-top:5px;
+}
+.subscribe{
+  float:right; padding-right:10px;
+}
 .text-secondary {
   color: black !important;
 }

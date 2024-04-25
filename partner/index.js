@@ -5,7 +5,6 @@ const cors = require('cors');
 const axios = require('axios');
 const { authenticateToken } = require('./jwt_auth');
 
-
 const app = express();
 
 app.use(express.json());
@@ -35,7 +34,7 @@ app.post('/subRequest', authenticateToken, async(req, res) => {
 const sendSubscriptionNotification = async(subscriptionRequest) => {
     try{
     const { subDetailID } = subscriptionRequest;
-    axios.post('http://localhost:3000/partners/services/callback', {subDetailID, data:subscriptionRequest,status:'Approved'},{
+    axios.post('http://localhost:3000/partners/services/callback', {subDetailID, data:subscriptionRequest,status:'Approved',message:'Approved'},{
                 headers:{
                     "Content-Type":"application/json",
                 }

@@ -6,6 +6,7 @@ const SubcriptionDetailSchema = new mongoose.Schema({
     subscriptionID: { type: mongoose.Schema.Types.ObjectId, ref: 'SubscriptionModel' },
     type: String, // Subscribe Or Unsubscribe
     status: String, //Pending Or Approved or Rejected
+    message: String //Coming from CallBack log 
 },
 {
     timestamps:true

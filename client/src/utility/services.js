@@ -1,8 +1,6 @@
 export const baseUrl = 'http://localhost:3000';
 
 export const postRequest = async(url,body) => {
-    console.log('Posted',url,body);
-
     const response = await fetch(url,{
         method:"POST",
         headers:{
@@ -27,6 +25,7 @@ export const postRequest = async(url,body) => {
 export const getRequest = async(url) => {
     const response = await fetch(url);
     const data = await response.json();
+    console.log('Incoming GetData',data);
 
     if(!response.ok){
         let message;

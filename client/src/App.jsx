@@ -7,12 +7,13 @@ import { Container } from 'react-bootstrap';
 import NavBar from './components/NavBar';
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
+import { SubscriptinContextProvider } from './context/SubscriptionContext';
 
 function App() {
   const { user,isRegistered }= useContext(AuthContext); 
 
   return (
-    <>
+    <SubscriptinContextProvider user={user}>
     <NavBar></NavBar>
     <Container className='text-secondary'>
       <Routes>
@@ -22,7 +23,7 @@ function App() {
         <Route path='*' element={<Navigate to='/' />}/>
       </Routes>
     </Container>
-    </>
+    </SubscriptinContextProvider>
   )
 }
 

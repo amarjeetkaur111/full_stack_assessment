@@ -9,6 +9,8 @@ const bcrypt = require('bcrypt');
 const validator = require('validator');
 
 const { createToken, payloadOptions } = require('../jwt_auth');
+const SubscriptionModel = require('../models/subsciptions');
+const SubcriptionDetailModel = require('../models/subscriptionDetail_model');
 
 const getPartners = async(req,res) => {
     try{
@@ -77,15 +79,16 @@ const saveLog = async(log) => {
     return await newLog.save();
 }
 
-const updateSubscriptionStatus = async(req) => {
-
+const updateSubscriptionStatus = async(req,res) => {
+ console.log('Req',req);
     const subDetailID = req.subDetailID;
     const type = req.data.type;
     const userId= req.data.userId;
     const serviceId = req.data.serviceId;
     const status = req.status;
+    const message = req.message;
 
-    const subDetail = await subDetailModel.findOneAndUpdate({_id: subDetailID},{$set: {status: status}},{upsert: false});
+    const subDetail = await subDetailModel.findOneAndUpdate({_id: subDetailID},{$set: {status: status,message:message}},{upsert: false});
     await subDetail.save();
     const subscriptionId = subDetail.subscriptionID;
 
@@ -119,7 +122,7 @@ const subscribe = async(req,res) => {
                 });
             }
 
-            const subDetail = new subDetailModel({subscriptionID:existingSubscription._id,type,status:'Pending'});
+            const subDetail = new subDetailModel({subscriptionID:existingSubscription._id,type,status:'Pending',message:'Pending'});
             await subDetail.save();
             subDetailID = subDetail._id;
 
@@ -132,7 +135,7 @@ const subscribe = async(req,res) => {
             const newSubcription = new subscriptionModel({userId:userId,serviceId:serviceId,currentStatus:'Pending'});
             await newSubcription.save();
             const newSubcriptionID = newSubcription._id;
-            const subDetail = new subDetailModel({subscriptionID:newSubcriptionID,type,status:'Pending'});
+            const subDetail = new subDetailModel({subscriptionID:newSubcriptionID,type,status:'Pending',message:'Pending'});
             await subDetail.save();
             subDetailID = subDetail._id;
         }
@@ -145,9 +148,8 @@ const subscribe = async(req,res) => {
         };
 
         let payload = {...payloadOptions,subscriptionId:subDetailID,action:type}
-        console.log(payload);
         const token = createToken(payload);
-        console.log('Token ',token);
+        // console.log('Token ',token);
 
         // Sending request to Partner to Subscribe or Unsubscribe
         axios.post('http://localhost:3001/subRequest', subscriptionData,{
@@ -179,7 +181,7 @@ const subscribe = async(req,res) => {
                         message:'401 Unauthorized: Invalid Token'
                     }
                     saveLog({...logData});
-                    updateSubscriptionStatus(logData);
+                    updateSubscriptionStatus({...logData});
                     return res.status(500).json({success:false,message:'401 Unauthorized: Invalid Token',data:subscriptionData});
                 });
 
@@ -199,16 +201,17 @@ const subscriptionCallback = (req, res) => {
         let logData = {
             subDetailID:subDetailID, 
             data: data, 
-            status: status  
+            status: status,
+            message:message  
         }
         if (status === 'Approved') {            
-            saveLog({...logData,message:message});
-            updateSubscriptionStatus(logData);
+            saveLog({...logData});
+            updateSubscriptionStatus({...logData});
             return res.status(200).json({success:true,message:'Response Received as '+status});
 
         } else if (status === 'Rejected') {
-            saveLog({...logData, message: message});
-            updateSubscriptionStatus(logData);
+            saveLog({...logData});
+            updateSubscriptionStatus({...logData});
             return res.status(200).json({success:false,message:'Response Received as '+status});
         }
     }
@@ -221,6 +224,64 @@ const subscriptionCallback = (req, res) => {
     }
 }
 
+const checkUserSubscription = async(req,res) => {
+    try{
+        const {userId, serviceId} = req.params;
+        const subscription = await SubscriptionModel.findOne({userId:userId, serviceId:serviceId});
+
+        if(subscription)
+        {
+            const subsciptionId = subscription._id;
+            const subscriptionDetail = await SubcriptionDetailModel.findOne({subscriptionID:subsciptionId}).sort({$natural: -1});
+            if(subscription.currentStatus === 'subscribe' && subscriptionDetail.status === 'Rejected'){
+                res.status(200).json({
+                    success:true,
+                    messageShow:true,
+                    message:subscriptionDetail.message 
+                });
+            }
+            else if(subscription.currentStatus === 'unsubscribe' && subscriptionDetail.status === 'Rejected'){
+                res.status(200).json({
+                    success:false,
+                    messageShow:true,
+                    message:subscriptionDetail.message 
+                });
+            }
+            else if(subscription.currentStatus === 'subscribe' && subscriptionDetail.status === 'Approved')
+            {
+                res.status(200).json({
+                    success:true,
+                    messageShow:false,
+                    message:subscriptionDetail.message 
+                });
+            }
+            else
+            {
+                res.status(200).json({
+                    success:false,
+                    messageShow:false,
+                    message:subscriptionDetail.message 
+                });
+
+            }
+        }
+        res.status(200).json({
+            success:false,
+            messageShow:false,
+            message:'No Subscription Found!'
+        });
+
+    }catch(err)
+    {
+        console.log(err);
+        return res.status(500).json({
+            success:false,
+            messageShow:true,
+            message:'Error while getting data : '+err
+        })
+        
+    }
+}
 
 
-module.exports = { getPartners , getPartnerServices, insertPartneService ,subscribe,subscriptionCallback }   
+module.exports = { getPartners , getPartnerServices, insertPartneService ,subscribe,subscriptionCallback, checkUserSubscription }   
