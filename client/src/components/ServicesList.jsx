@@ -29,7 +29,7 @@ const ServicesList = () => {
                                                     </div>
                                                 </Col>
                                                 <Col sm='4'>
-                                                    <Subscription />
+                                                    <Subscription serviceId={service._id}/>
                                                 </Col>
                                             </div>
                                         </div>                                            

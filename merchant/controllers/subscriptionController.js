@@ -229,54 +229,52 @@ const checkUserSubscription = async(req,res) => {
         const {userId, serviceId} = req.params;
         const subscription = await SubscriptionModel.findOne({userId:userId, serviceId:serviceId});
 
-        if(subscription)
-        {
-            const subsciptionId = subscription._id;
-            const subscriptionDetail = await SubcriptionDetailModel.findOne({subscriptionID:subsciptionId}).sort({$natural: -1});
-            if(subscription.currentStatus === 'subscribe' && subscriptionDetail.status === 'Rejected'){
-                res.status(200).json({
-                    success:true,
-                    messageShow:true,
-                    message:subscriptionDetail.message 
-                });
-            }
-            else if(subscription.currentStatus === 'unsubscribe' && subscriptionDetail.status === 'Rejected'){
-                res.status(200).json({
-                    success:false,
-                    messageShow:true,
-                    message:subscriptionDetail.message 
-                });
-            }
-            else if(subscription.currentStatus === 'subscribe' && subscriptionDetail.status === 'Approved')
-            {
-                res.status(200).json({
-                    success:true,
-                    messageShow:false,
-                    message:subscriptionDetail.message 
-                });
-            }
-            else
-            {
-                res.status(200).json({
-                    success:false,
-                    messageShow:false,
-                    message:subscriptionDetail.message 
-                });
+        if(!subscription)
+            return res.status(200).json({
+                success:false,
+                messageShow:false,
+                message:'No Subscription Found!'
+            });
 
-            }
+        
+        const subsciptionId = subscription._id;
+        const subscriptionDetail = await SubcriptionDetailModel.findOne({subscriptionID:subsciptionId}).sort({$natural: -1});
+        if(subscription.currentStatus === 'subscribe' && subscriptionDetail.status === 'Rejected'){
+            res.status(200).json({
+                success:true,
+                messageShow:true,
+                message:subscriptionDetail.message 
+            });
         }
-        res.status(200).json({
-            success:false,
-            messageShow:false,
-            message:'No Subscription Found!'
-        });
+        else if(subscription.currentStatus === 'unsubscribe' && subscriptionDetail.status === 'Rejected'){
+            res.status(200).json({
+                success:false,
+                messageShow:true,
+                message:subscriptionDetail.message 
+            });
+        }
+        else if(subscription.currentStatus === 'subscribe' && subscriptionDetail.status === 'Approved')
+        {
+            res.status(200).json({
+                success:true,
+                messageShow:false,
+                message:subscriptionDetail.message 
+            });
+        }
+        else
+        {
+            res.status(200).json({
+                success:false,
+                messageShow:false,
+                message:subscriptionDetail.message 
+            });
+        }        
 
     }catch(err)
     {
         console.log(err);
         return res.status(500).json({
             success:false,
-            messageShow:true,
             message:'Error while getting data : '+err
         })
         
